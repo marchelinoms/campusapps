@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/styles.css}">
+    <title>Biodata Instruktur</title>
+</head>
+    <body class="register">
+        <nav>
+            <a class="btn" th:href="@{/}">Home</a>
+        </nav>
+    
+        <div class="container">
+            <h3>Form Data Diri Instruktur</h3>
+            <form th:attr="action=@{/instructor/processInstructor}" method="POST" th:object="${instructor}">
+                <label>Nama Depan
+                    <input required name="namaDepan" type="text" th:field="*{firstName}" placeholder="Nama Depan">
+                </label>
+    
+                <label>Nama Belakang
+                    <input name="namaBelakang" type="text" th:field="*{lastName}" placeholder="Nama Belakang">
+                </label>
+    
+                <label>Jenis Kelamin
+                    <select required th:field="*{jenisKelamin}">
+                        <option th:value="o" selected>-Pilih-</option>
+                        <option th:value="L">Laki-laki</option>
+                        <option th:value="P">Perempuan</option>
+                    </select>
+                </label>
+
+                <label>Tanggal Pengangkatan
+                    <input required name="tanggalPengangkatan" type="date" th:field="*{hiredDate}">
+                </label>
+                
+                <label>Email
+                    <input required name="email" type="email" th:field="*{email}" placeholder="Email">
+                </label>
+                
+                <label>Alamat
+                    <textarea placeholder="Alamat lengkap" required maxlength="200" cols="30" rows="5" name="alamat" th:field="*{address}"></textarea>
+                </label>
+    
+                <input type="submit" value="Submit">
+            </form>
+            <a class="btn-dec2" th:href="@{/}">Cancel</a>
+        </div>
+        <script th:src="@{/site.js}"></script>
+    
+</body>
+</html>

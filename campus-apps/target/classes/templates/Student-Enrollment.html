@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Enrollment</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+
+<body class="register">
+<nav>
+    <a class="btn" th:href="@{/}">Home</a>
+</nav>
+<div class="container">
+    <h3>Form Daftar Ulang Mahasiswa </h3>
+
+    <form th:attr="action=@{/enrollment/processEnrollment}" method="POST">
+        <input type="hidden" name="idStudent" th:value="${idStudent}">
+        <label>Payment Method
+            <select name="payment">
+                <option th:value="o" hidden>-Pilih-</option>
+                <option th:value="Cash">CASH</option>
+                <option th:value="Atm">ATM</option>
+            </select>
+        </label>
+
+        <label>Periode
+            <select name="period" >
+                <option th:value="o" hidden>-Pilih-</option>
+                <option th:value="Ganjil">GANJIL</option>
+                <option th:value="Genap">GENAP</option>
+            </select>
+        </label>
+
+        <p> Mata Pelajaran</p>
+        <div th:each="d:${courseList}">
+            <label th:text="${d.title}">
+            </label>
+            <input name="idCourse" type="checkbox" th:value="${d.id}">
+        </div>
+
+        <input type="submit" value="Submit">
+    </form>
+    <a class="btn-decn" th:href="@{/student/dataStudent}" >Cancel</a>
+</div>
+<script th:src="@{/site.js}"></script>
+</body>
+</html>

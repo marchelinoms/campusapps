@@ -1,0 +1,291 @@
+body {
+    font-family: Arial;
+    padding: 0 10px;
+    background-color: #0a61e28e;
+}
+
+body.register {
+    background-color: rgb(20, 36, 20);
+}
+
+body.data {
+    background-color: black;
+}
+
+body.register .btn {
+    color: black;
+}
+
+body.register .btn:hover {
+    border-color: black;
+}
+
+body.error {
+    background-color: mediumpurple;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+input,select, textarea {
+    display: block;
+    margin: 0 10px;
+    padding: 5px 3px;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: none;
+}
+
+input[type="text"] {
+    text-transform: capitalize;
+}
+
+input[type="email"] {
+    text-transform: lowercase;
+}
+
+input[type="submit"] {
+    cursor: pointer;
+    margin: 20px 10px
+}
+
+nav {
+    display: flex;
+    justify-content: right;
+    column-gap: 50px;
+    padding-right: 100px;
+}
+
+.wrapper {
+    margin: 100px auto 0 auto;
+    color: white;
+    width: 70%;
+    transform: translateX(-100%);
+    transition: .8s;
+}
+
+.wrapper.slide {
+    transform: translateX(0);
+}
+
+.attention{
+    background-color: #84c584;
+    margin: 100px auto 0 auto;
+    color: rgba(20, 1, 1, 0.384);
+    width: 70%;
+}
+.wrapper > h1 {
+    font-size: 4em;
+}
+
+.container {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding-left: 15%;
+    transform: translateY(-120%);
+    transition: .8s;
+}
+
+.container.translation {
+    transform: translateY(0);
+}
+
+label {
+    font-weight: bold;
+}
+
+.tabel-data {
+    margin-top: 20px;
+    border-collapse: collapse;
+    border: solid 1px black;
+}
+
+.tabel-data th {
+    background-color: black;
+    color: white;
+}
+
+.tabel-data th,
+.tabel-data td {
+    padding: 10px 20px;
+    color: white;
+}
+
+.tabel-data tbody tr:nth-child(even) {
+    background-color: white;
+}
+
+.tabel-data tbody tr:nth-child(even) td {
+    color: black;
+}
+
+.btn {
+    color: white;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 20px;
+    padding: 7px 0;
+    height: 30px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.btn:hover {
+    border-bottom: solid 2px white;
+}
+
+.btn-dec {
+    padding: 10px 20px;
+    background-color: #84c584;
+    color: black;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 20px;
+    border-radius: 7px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.btn-dec2{
+    padding: 10px 15px;
+    background-color: #e41e0f;
+    color: black;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 20px;
+    border-radius: 7px;
+    cursor: pointer;
+    margin-left: 80px
+}
+
+.btn-decx{
+    padding: 10px 20px;
+    background-color: #84c584;
+    color: black;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 20px;
+    border-radius: 7px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.btn-dec3{
+    padding: 10px 15px;
+    background-color: #e41e0f;
+    color: black;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 20px;
+    border-radius: 7px;
+    cursor: pointer;
+    margin-left: 80px
+}
+
+.btn-decn{
+    background-color: #e41e0f;
+    color: black;
+    font-weight: bold;
+    width: 115px;
+    border-radius: 7px;
+    margin: 20px 300px;
+    text-align: center;
+}
+
+.cap {
+    text-transform: capitalize;
+}
+
+.icon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.icon.trash {
+    background-color: rgba(255, 0, 0, 0.62);
+}
+
+.icon.pencil {
+    background-color: rgba(0, 60, 255, 0.62);
+}
+
+.upp {
+    text-transform: uppercase;
+}
+#overlay {
+    visibility: hidden;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width:100%;
+    height:100%;
+    text-align:center;
+    z-index: 1000;
+    background-color: #000;
+}
+#overlay div {
+    width:300px;
+    margin: 100px auto;
+    background-color: #fff;
+    border:1px solid #000;
+    padding:15px;
+    text-align:center;
+}
+
+#overlay .btn{
+    color: #000;
+}
+#overlay2 {
+    visibility: hidden;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width:100%;
+    height:100%;
+    text-align:center;
+    z-index: 1000;
+    background-color: #000;
+}
+
+#overlay2 div {
+    width:300px;
+    margin: 100px auto;
+    background-color: #fff;
+    border:1px solid #000;
+    padding:15px;
+    text-align:center;
+}
+
+.close{
+    position: absolute;
+    right: 194px;
+    top: 104px;
+    cursor: pointer;    
+}
+
+section{
+    background-color: #0a61e28e;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+}
+.enroll {
+    padding: 10px 20px;
+    background-color: #84c584;
+    color: black;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 20px;
+    border-radius: 7px;
+}

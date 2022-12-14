@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+    <nav>
+        <a class="btn" th:href="@{/}">Home</a>
+    </nav>
+
+    <div class="container">
+        <h3>Update Form Instruktur</h3>
+        <form th:attr="action=@{/instructor/updateInstructor}" method="POST" th:object="${instructor}">
+            <label>
+                <input name="id" type="hidden" th:field="*{id}">
+            </label>
+            <label>Nama Depan
+                <input required name="namaDepan" type="text" th:field="*{firstName}" placeholder="Nama Depan">
+            </label>
+
+            <label>Nama Belakang
+                <input name="namaBelakang" type="text" th:field="*{lastName}" placeholder="Nama Belakang">
+            </label>
+
+            <label>Jenis Kelamin
+                <select required th:field="*{jenisKelamin}">
+                    <option th:value="o" selected>-Pilih-</option>
+                    <option th:value="L">Laki-laki</option>
+                    <option th:value="P">Perempuan</option>
+                </select>
+            </label>
+
+            <label>Tanggal Pengangkatan
+                <input required name="tanggalPengangkatan" type="date" th:field="*{hiredDate}">
+            </label>
+            
+            <label>Email
+                <input required name="email" type="email" th:field="*{email}" placeholder="Email">
+            </label>
+            
+            <label>Alamat
+                <textarea placeholder="Alamat lengkap" required maxlength="200" cols="30" rows="5" name="alamat" th:field="*{address}"></textarea>
+            </label>
+
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <a class="btn-dec2" th:href="@{/instructor/dataInstructor}">Cancel</a>
+    <script th:src="@{/site.js}"></script>
+</body>
+</html>

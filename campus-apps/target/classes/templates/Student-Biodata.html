@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/styles.css}">
+    <title>Student Biodata</title>
+</head>
+<body class="data">
+    <nav>
+        <a class="btn" th:href="@{/}">Home</a>
+        <a class="btn" onclick="overlay()">Register</a>
+        <a class="btn" onclick="overlay2()">Data</a>
+    </nav>
+    <section>
+       <h3>Data Mahasiswa</h3> 
+    </section>
+    <table class="tabel-data">
+        <thead>
+        <tr>
+            <th>No.</th>
+            <th>Nama Depan</th>
+            <th>Nama Belakang</th>
+            <th>Jenis Kelamin</th>
+            <th>Tempat Lahir</th>
+            <th>Tanggal Lahir</th>
+            <th>Email</th>
+            <th>Alamat</th>
+            <th> </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="d, i : ${studentList}">
+            <td th:text="${i.index + 1}"></td>
+            <td class="cap" th:text="${d.firstName}"></td>
+            <td class="cap" th:text="${d.lastName}"></td>
+            <td th:text="${d.jenisKelamin}"></td>
+            <td class="cap" th:text="${d.tempatLahir}"></td>
+            <td th:text="${d.tanggalLahir}"></td>
+            <td th:text="${d.email}"></td>
+            <td th:text="${d.address}"></td>
+
+            <td>
+                <a th:href="@{/student/editStudent/{id}(id=${d.id})}" class="icon pencil">&#9998;</a>
+                <a th:href="@{/student/deleteStudent/{id}(id=${d.id})}" class="icon trash">&#128465;</a>
+                <a th:href="@{/enrollment/enrollStudent/{id}(id=${d.id})}" class="enroll">Enroll</a>
+            </td>
+        </tr>
+        <a th:href="@{/enrollment/dataEnrollment}" class="enroll">See Enrollment</a>
+        </tbody>
+    </table>    
+
+    <div id="overlay">
+        <div>
+            <a class="close" onclick='overlay()'>X</a>
+            <p>Apa yang ingin anda daftarkan?</p>
+            <label>
+                <select required id="selectBtn">
+                    <option th:value="2" selected>-Pilih-</option>
+                    <option th:value="1">Instructor</option>
+                    <option th:value="0">Student</option>
+                </select>
+            </label>
+
+            <a class="btn-dec" th:href="@{/student/Register2}"> Next </a>
+            <a class="btn-dec" th:href="@{/instructor/Register}"> Next </a>
+            <a class="btn-dec" onclick='overlay()'> Next </a>
+
+            <a class="btn-dec2" onclick='overlay()'>Cancel</a>
+            
+        </div>
+    </div>
+    <div id="overlay2">
+        <div>
+            <a class="close" onclick='overlay2()'>X</a>
+            <p>Data apa yang ingin anda lihat?</p>
+            <label>
+                <select required id="selectBtnx">
+                    <option th:value="2" selected>Course</option>
+                    <option th:value="1">Instructor</option>
+                    <option th:value="0">Student</option>
+                </select>
+            </label>
+
+            <a class="btn-decx" th:href="@{/student/dataStudent}"> Next </a>
+            <a class="btn-decx" th:href="@{/instructor/dataInstructor}"> Next </a>
+            <a class="btn-decx" th:href="@{/course/dataCourse}"> Next </a>
+
+            <a class="btn-dec3" onclick='overlay2()'>Cancel</a>
+            
+        </div>
+    </div>
+    <script th:src="@{/site.js}"></script>
+</body>
+</html>

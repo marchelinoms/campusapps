@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/styles.css}">
+    <title>Form Mata Pelajaran Baru</title>
+</head>
+    <body class="register">
+        <nav>
+            <a class="btn" th:href="@{/}">Home</a>
+        </nav>
+ <div class="container">
+        <h3>Form Data Mata Pelajaran</h3>
+        <form th:attr="action=@{/course/processCourse}" method="POST" th:object="${course}">
+            <label>Nama Mata Pelajaran
+                <input required name="title" type="text" th:field="*{title}" placeholder="Ex: Mekanika I">
+            </label>
+
+            <label>Deskripsi
+                <input name="desc" type="text" th:field="*{desc}" placeholder="Ex: Ini merupakan mata pelajaran yang merangkum materi mekanika newton dasar">
+            </label>
+
+            <label>Periode
+                <select required th:field="*{period}">
+                    <option th:value="o" selected>-Pilih-</option>
+                    <option th:value="Ganjil">GANJIL</option>
+                    <option th:value="Genap">GENAP</option>
+                </select>
+            </label>
+            <input type="submit" value="Submit">
+        </form>
+        <a class="btn-decn" th:href="@{/course/dataCourse}" >Cancel</a>
+</div>
+<script th:src="@{/site.js}"></script>
+</body>
+</html>

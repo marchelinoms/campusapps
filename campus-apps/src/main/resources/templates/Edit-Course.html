@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+    <nav>
+        <a class="btn" th:href="@{/}">Home</a>
+    </nav>
+
+    <div class="container">
+        <h3>Update Form Mahasiswa</h3>
+        <form th:attr="action=@{/course/updateCourse}" method="POST" th:object="${course}">
+            <label>
+                <input name="id" type="hidden" th:field="*{id}">
+            </label>
+            <label>Nama Mata Pelajaran
+                <input required name="title" type="text" th:field="*{title}" placeholder="Ex: Mekanika I">
+            </label>
+
+            <label>Deskripsi
+                <input name="desc" type="text" th:field="*{desc}" placeholder="Ex: Ini merupakan mata pelajaran yang merangkum materi mekanika newton dasar">
+            </label>
+
+            <label>Periode
+                <select required th:field="*{period}">
+                    <option th:value="o" selected>-Pilih-</option>
+                    <option th:value="Ganjil">GANJIL</option>
+                    <option th:value="Genap">GENAP</option>
+                </select>
+            </label>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <a class="btn-dec2" th:href="@{/course/dataCourse}">Cancel</a>
+    <script th:src="@{/site.js}"></script>
+</body>
+</html>

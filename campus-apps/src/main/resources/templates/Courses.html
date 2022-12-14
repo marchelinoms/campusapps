@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/styles.css}">
+    <title>Course Data</title>
+</head>
+<body class="data">
+    <nav>
+        <a class="btn" th:href="@{/}">Home</a>
+        <a class="btn" onclick="overlay()">Register</a>
+        <a class="btn" onclick="overlay2()">Data</a>
+    </nav>
+    <section>
+        <h3>Daftar Mata Pelajaran</h3>
+    </section>
+    <a class="enroll" th:href="@{/course/Register3}">Tambah Mata Pelajaran</a>
+    <table class="tabel-data">
+        <thead>
+        <tr>
+            <th>No.</th>
+            <th>Nama Mata Pelajaran</th>
+            <th>Deskripsi</th>
+            <th>Periode</th>
+            <th> </th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:each="d, i : ${courseList}">
+            <td th:text="${i.index + 1}"></td>
+            <td class="cap" th:text="${d.title}"></td>
+            <td class="cap" th:text="${d.desc}"></td>
+            <td th:text="${d.period}"></td>
+            <td>
+                <a th:href="@{/course/editCourse/{id}(id=${d.id})}" class="icon pencil">&#9998;</a>
+                <a th:href="@{/course/deleteCourse/{id}(id=${d.id})}" class="icon trash">&#128465;</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div id="overlay">
+        <div>
+            <a class="close" onclick='overlay()'>X</a>
+            <p>Apa yang ingin anda daftarkan?</p>
+            <label>
+                <select required id="selectBtn">
+                    <option th:value="2" selected>-Pilih-</option>
+                    <option th:value="1">Instructor</option>
+                    <option th:value="0">Student</option>
+                </select>
+            </label>
+
+            <a class="btn-dec" th:href="@{/student/Register2}"> Next </a>
+            <a class="btn-dec" th:href="@{/instructor/Register}"> Next </a>
+            <a class="btn-dec" onclick='overlay()'> Next </a>
+
+            <a class="btn-dec2" onclick='overlay()'>Cancel</a>
+            
+        </div>
+    </div>
+    <div id="overlay2">
+        <div>
+            <a class="close" onclick='overlay2()'>X</a>
+            <p>Data apa yang ingin anda lihat?</p>
+            <label>
+                <select required id="selectBtnx">
+                    <option th:value="2" selected>Course</option>
+                    <option th:value="1">Instructor</option>
+                    <option th:value="0">Student</option>
+                </select>
+            </label>
+
+            <a class="btn-decx" th:href="@{/student/dataStudent}"> Next </a>
+            <a class="btn-decx" th:href="@{/instructor/dataInstructor}"> Next </a>
+            <a class="btn-decx" th:href="@{/course/dataCourse}"> Next </a>
+
+            <a class="btn-dec3" onclick='overlay2()'>Cancel</a>
+            
+        </div>
+    </div>
+    <script th:src="@{/site.js}"></script>    
+</body>
+</html>
